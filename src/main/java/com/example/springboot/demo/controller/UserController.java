@@ -41,18 +41,18 @@ public class UserController {
     }
 
     @RequestMapping(value = "/register",produces="text/html;charset=UTF-8")
-                   @ResponseBody
-                   public void register(User user){
-                       System.out.println(user.getUsername());
-                       System.out.println(user.getPassword());
-                       JsonResult jsonResult=new JsonResult();
-                       if(user!=null&&StringUtil.isNotEmpty(user.getUsername())&&StringUtil.isNotEmpty(user.getPassword())){
-                           List<User> list=userService.getUsers();
-                           list.forEach(str->{
-                               if(str.getUsername().equals(user.getUsername())){
-                                   jsonResult.setMessage("用户名已存在");
-                               }else{
-                                   jsonResult.setSuccess(true);
+    @ResponseBody
+    public void register(User user){
+        System.out.println(user.getUsername());
+        System.out.println(user.getPassword());
+        JsonResult jsonResult=new JsonResult();
+        if(user!=null&&StringUtil.isNotEmpty(user.getUsername())&&StringUtil.isNotEmpty(user.getPassword())){
+            List<User> list=userService.getUsers();
+            list.forEach(str->{
+               if(str.getUsername().equals(user.getUsername())){
+                   jsonResult.setMessage("用户名已存在");
+               }else{
+                   jsonResult.setSuccess(true);
                    userService.register(user);
                }
                     });

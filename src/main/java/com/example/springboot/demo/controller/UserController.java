@@ -66,6 +66,14 @@ public class UserController {
             jsonResult.setMessage("用户名和密码不能为空");
         }
     }
+
+    //获取所有用户信息
+    @RequestMapping(value = "/getUserList",produces="text/html;charset=UTF-8")
+    @ResponseBody
+    public String getUserList() {
+        List<User> list = userService.getUsers();
+        return  JSON.toJSONString(list);
+    }
 }
 
 

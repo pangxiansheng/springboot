@@ -14,9 +14,7 @@ public interface UserMapper {
      //判断用户名是否重复
     public void register(User user);
     public List<User> getUsers();
-    public boolean updateUser(User user);
-    public boolean deleteUser(int id);
-    public boolean deleteAllUsers();
+
 }
 
 

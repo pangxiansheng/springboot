@@ -54,9 +54,9 @@ public class MailUtil {
 
             /**
              * 3.设置收件人地址（可以增加多个收件人、抄送、密送）（昵称如果包含中文需要ENCODE否则乱码）
-             * MimeMessage.RecipientType.TO:发送
-             * MimeMessage.RecipientType.CC：抄送
-             * MimeMessage.RecipientType.BCC：密送
+             *              * MimeMessage.RecipientType.TO:发送
+             *              * MimeMessage.RecipientType.CC：抄送
+             *              * MimeMessage.RecipientType.BCC：密送
              */
             List<String> to = new ArrayList<>();
             to.add(MimeUtility.encodeText("DEMO收件人昵称") + " <test2@htzq.htsc.com.cn>");

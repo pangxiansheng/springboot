@@ -1,12 +1,13 @@
 package com.example.springboot.demo.controller;
 
-import ch.qos.logback.core.net.SyslogOutputStream;
 import com.alibaba.fastjson.JSON;
 import com.example.springboot.demo.entity.User;
+import com.example.springboot.demo.service.StudentService;
 import com.example.springboot.demo.service.UserService;
 import com.example.springboot.demo.utils.JsonResult;
 import com.example.springboot.demo.utils.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,6 +19,8 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+    @Autowired
+    private StudentService studentService;
 
     @GetMapping("/hi")  //如果方法上的RequestMapping没有value，则此方法默认被父路径调用
     public String index(){
@@ -74,6 +77,15 @@ public class UserController {
         List<User> list = userService.getUsers();
         return  JSON.toJSONString(list);
     }
+
+    @Transactional
+    @RequestMapping(value = "/test",produces="text/html;charset=UTF-8")
+    @ResponseBody
+    public String test(){
+        userService.test();
+        return "失败";
+    }
+
 }
 
 

@@ -15,6 +15,8 @@ public interface UserMapper {
     public void register(User user);
     public List<User> getUsers();
 
+    public boolean deleteAllUsers();
+
 }
 
 

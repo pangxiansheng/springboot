@@ -58,7 +58,7 @@ public class UserController {
                    jsonResult.setSuccess(true);
                    userService.register(user);
                }
-                    });
+            });
 //            if(list.contains(user.getUsername())){
 //                jsonResult.setMessage("用户名已存在");
 //            }else{
